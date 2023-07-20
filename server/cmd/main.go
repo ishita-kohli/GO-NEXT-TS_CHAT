@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os"
 	"server/db"
 	"server/internal/user"
 	"server/internal/ws"
@@ -22,6 +23,12 @@ func main() {
 	wsHandler := ws.NewHandler(hub)
 	go hub.Run()
 
+	port, exists := os.LookupEnv("PORT")
+
+	if !exists {
+		panic("env var not found: PORT")
+	}
+
 	router.InitRouter(userHandler, wsHandler)
-	router.Start("0.0.0.0:8080")
+	router.Start("0.0.0.0:" + port)
 }
