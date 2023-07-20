@@ -20,10 +20,7 @@ func InitRouter(userHandler *user.Handler, wsHandler *ws.Handler) {
 		AllowHeaders:     []string{"Content-Type"},
 		ExposeHeaders:    []string{"Content-Length"},
 		AllowCredentials: true,
-		AllowOriginFunc: func(origin string) bool {
-			return origin == "http://localhost:3000" || origin == "https://go-next-ts-chat.vercel.app"
-		},
-		MaxAge: 12 * time.Hour,
+		MaxAge:           12 * time.Hour,
 	}))
 
 	r.POST("/signup", userHandler.CreateUser)
