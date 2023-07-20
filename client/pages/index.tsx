@@ -73,13 +73,13 @@ const Index = () => {
         <div className='flex justify-center mt-3 p-5'>
           <input
             type='text'
-            className='border border-grey p-2 rounded-md focus:outline-none focus:border-blue'
+            className='border border-gray-400 p-2 rounded-md focus:outline-none focus:border-blue-500'
             placeholder='room name'
             value={roomName}
             onChange={(e) => setRoomName(e.target.value)}
           />
           <button
-            className='bg-blue border text-white rounded-md p-2 md:ml-4'
+            className='bg-blue-500 border text-white rounded-md p-2 md:ml-4'
             onClick={submitHandler}
           >
             create room
@@ -91,15 +91,15 @@ const Index = () => {
             {rooms.map((room, index) => (
               <div
                 key={index}
-                className='border border-blue p-4 flex items-center rounded-md w-full'
+                className='border border-blue-500 p-4 flex items-center rounded-md w-full'
               >
                 <div className='w-full'>
                   <div className='text-sm'>room</div>
-                  <div className='text-blue font-bold text-lg'>{room.name}</div>
+                  <div className='text-blue-500 font-bold text-lg'>{room.name}</div>
                 </div>
                 <div className=''>
                   <button
-                    className='px-4 text-white bg-blue rounded-md'
+                    className='px-4 text-white bg-blue-500 rounded-md'
                     onClick={() => joinRoom(room.id)}
                   >
                     join
